@@ -18,7 +18,8 @@ function ensureSlash(path, needsSlash) {
   } else if (!hasSlash && needsSlash) {
     return `${path}/`;
   } else {
-    return path;
+    return path;       // 修改打包后资源路径为 static -> ./static
+    // return `.${path}`;
   }
 }
 
