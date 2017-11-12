@@ -4,12 +4,15 @@
 import React, { Component } from 'react'
 import {
   HashRouter as Router,
-  Route,
-  Link
+  Link,
+  Switch,
+  Route
 } from 'react-router-dom'
 
 import App from '../containers/App'
 import Login from '../containers/Login'
+// import Dashboard from '../containers/Dashboard'
+import Home from '../containers/Home'
 
 export default
 class Routers extends Component {
@@ -17,13 +20,14 @@ class Routers extends Component {
     return (
       <Router>
         <div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/login">login</Link></li>
-          </ul>
-          <hr/>
-          <Route exact path="/" component={App}/>
-          <Route path="/login" component={Login}/>
+          <Link to="/login">login</Link> <br/>
+          <Link to="/">index</Link> <br/>
+          <Link to="/home2">home2</Link>
+          <Switch>
+            <Route exact path="/" component={App}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/home2" component={Home}/>
+          </Switch>
         </div>
       </Router>
     )

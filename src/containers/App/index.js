@@ -1,27 +1,36 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 // import { Button } from 'antd';
-import logo from './logo.svg';
+import {
+  // HashRouter as Router,
+  Route,
+  Switch,
+  Link
+} from 'react-router-dom';
+import NavBar from './NavBar'
+import SideBar from './SideBar'
+import Dashboard from '../Dashboard'
+import Home from '../Home'
 import './App.css';
 
-export default
-class App extends Component {
+export default class App extends Component {
   render() {
+    const contentStyle = {
+      marginLeft: '240px'
+    };
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <div>
-          <h3>123456</h3>
+        <NavBar/>
+
+        <SideBar/>
+
+        <div className="app-content" style={contentStyle}>
+          <h1>app-content</h1>
+          <Link to="/home">home</Link>
+          <Switch>
+            <Route exact path="/" component={Dashboard}/>
+            <Route exact path="/home" component={Home}/>
+          </Switch>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-          {/*<Button type="primary">Primary</Button>*/}
-          {/*<Button>Default</Button>*/}
-          {/*<Button type="dashed">Dashed</Button>*/}
-          {/*<Button type="danger">Danger</Button>*/}
-        </p>
       </div>
     );
   }
