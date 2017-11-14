@@ -25,16 +25,15 @@ class App extends Component {
     console.log(this.state, 'state');
     console.log(this.props, 'props');
   }
-  _changeName(){
+  _changeName = () => {
     this.props.dispatch(action.hi())
-  }
+  };
   render() {
     const contentStyle = {
       marginLeft: '240px',
       boxSizing: 'border-box',
       padding: '10px'
     };
-    console.log(this.props, 'render')
     const {name} = this.props;
     // const { name = '未定义' } = this.props;
     return (
@@ -46,7 +45,7 @@ class App extends Component {
         <div className="app-content" style={contentStyle}>
           <h1 style={{borderBottom:'1px solid #333'}}>app-content</h1>
           <h2>name: {name}</h2>
-          <button onClick={this._changeName}>修改名字</button>
+          <button onClick={this._changeName.bind(null)}>修改名字</button>
           <Switch>
             <Route exact path="/" component={Dashboard}/>
             <Route exact path="/404" component={NotFound}/>
