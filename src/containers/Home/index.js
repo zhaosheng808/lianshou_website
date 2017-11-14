@@ -2,7 +2,12 @@
  * Created by DELL on 2017/11/10.
  */
 import React, { Component } from 'react';
-
+import {
+  Switch,
+  Link,
+  Route
+} from 'react-router-dom';
+import Homename from './HomeName'
 export default
 class Home extends Component {
   render() {
@@ -12,6 +17,10 @@ class Home extends Component {
         <p className="App-intro">
           主页
         </p>
+        <Link to='/home/xiaoming'>小明之家</Link>
+        <Switch>
+          <Route exact path="/home/:name" component={Homename}/>
+        </Switch>
       </div>
     );
   }

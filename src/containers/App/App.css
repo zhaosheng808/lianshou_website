@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
+  height: 100%;
 }
 
 .App-logo {
@@ -20,6 +21,9 @@
 
 .App-intro {
   font-size: large;
+}
+.app-content{
+  background: cornsilk;
 }
 
 @keyframes App-logo-spin {
