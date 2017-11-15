@@ -26,7 +26,7 @@ class App extends Component {
     console.log(this.props, 'props');
   }
   _changeName = () => {
-    this.props.dispatch(action.hi())
+    this.props.dispatch(action.add())
   };
   render() {
     const contentStyle = {
@@ -44,12 +44,12 @@ class App extends Component {
 
         <div className="app-content" style={contentStyle}>
           <h1 style={{borderBottom:'1px solid #333'}}>app-content</h1>
-          <h2>name: {name}</h2>
-          <button onClick={this._changeName.bind(null)}>修改名字</button>
+          <h2>number: {name}</h2>
+          <button onClick={this._changeName}>add 1</button>
           <Switch>
-            <Route exact path="/" component={Dashboard}/>
-            <Route exact path="/404" component={NotFound}/>
+          <Route exact path="/" component={Dashboard}/>
             <Route path="/home" component={Home}/>
+            <Route path="/404" component={NotFound}/>
             <Route component={NotFound}/>
           </Switch>
         </div>
@@ -57,4 +57,4 @@ class App extends Component {
     );
   }
 }
-export default  connect(state => state)(App);
+export default  connect(state => state, null, null, {pure: false})(App);

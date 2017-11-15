@@ -13,7 +13,7 @@ import Login from '../containers/Login'
 import Home from '../containers/Home'
 
 export default
-class Routers extends Component {
+class Main extends Component {
   render() {
     const routerWrapper = {
       height: '100%'
