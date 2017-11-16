@@ -7,7 +7,7 @@ import {
   Switch,
   Redirect,
   Route
-} from 'react-router-dom'
+} from 'react-router-dom';
 import { connect } from 'react-redux';
 import App from './containers/App'
 import Login from './containers/Login'
@@ -16,12 +16,11 @@ class Main extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isLogin: false
     };
   }
   _authLogin = () => {
-    console.log(this.props.user, 'user');
-    const { username = '' } = this.props.user;
+    console.log(this.props.admin, 'admin');
+    const { username = 'aaa' } = this.props.admin;
     if (username) {
       return <App />
     } else {

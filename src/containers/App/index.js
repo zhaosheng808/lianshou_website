@@ -47,7 +47,7 @@ class App extends Component {
           <h2>number: {name}</h2>
           <button onClick={this._changeName}>add 1</button>
           <Switch>
-          <Route exact path="/" component={Dashboard}/>
+            <Route exact path="/" component={Dashboard}/>
             <Route path="/home" component={Home}/>
             <Route path="/404" component={NotFound}/>
             <Route component={NotFound}/>

@@ -1,51 +1,91 @@
 /**
  * Created by DELL on 2017/11/10.
  */
-import React, { Component } from 'react';
-import { Button, Form, Input } from 'element-react';
+import React, {Component} from 'react';
+import {Button, Form, Input, Notification} from 'element-react';
 // import style from './index.css';
-import { connect } from 'react-redux';
-import {login} from '../../redux/actions';
+import {connect} from 'react-redux';
+import axios from 'axios'
+import {login} from '../../redux/models/admin';
 require('./index.css');
 
 class Login extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
+      isLoading: false,
       form: {
         name: '',
         password: ''
+      },
+      rules: {
+        name: [
+          {required: true, message: '用户名不能为空', trigger: 'change'}
+        ],
+        password: [
+          {required: true, message: '密码不能为空', trigger: 'change'}
+        ],
       }
     };
   }
-  componentDidMount () {
+  componentDidMount() {
     // console.log(login)
+    axios.post('http://test-api-jper.foundao.com/acc_cms/system/login', {user_name: '12', password: '111'})
   }
-  onSubmit = () => {
-    // e.preventDefault();
-    // console.log(this.state.form, 'das');
-    this.props.dispatch(login());
-    this.props.history.push('/');
 
+  _onSubmit = () => {
+    this.refs.form.validate((valid) => {
+      if (valid) {
+        this._login();
+      } else {
+        console.log('error submit!!');
+        return false;
+      }
+    });
   };
-  onChange = (key, value) => {
-    this.state.form[key] = value;
+  _login = () => {
+    this.setState({
+      isLoading: true
+    });
+    setTimeout( () => {
+      this.props.dispatch(login());
+      this.props.history.push('/');
+      Notification({
+        title: '登录成功',
+        message: '这是一条成功的提示消息',
+        type: 'success'
+      });
+    }, 3000)
+  };
+  _onChange = (key, value) => {
+    const newForm = {...this.state.form}; // 扩展运算符
+    newForm[key] = value;
+    this.setState({form: newForm});
     this.forceUpdate();
   };
+  _onKeyPress = (event) => {
+    const charCode = event.keyCode || event.which;
+    if (charCode === 13) {
+      event && event.preventDefault(); // eslint-disable-line
+      this._onSubmit();
+    }
+  };
+
   render() {
+    const {isLoading} = this.state;
     return (
       <div className="login">
-        <div className='login_form'>
+        <div className='login_form' onKeyPress={this._onKeyPress}>
           <h3>聚焦企业版登录</h3>
-          <Form model={this.state.form} labelWidth="80">
-            <Form.Item label="账号">
-              <Input value={this.state.form.name} onChange={this.onChange.bind(this, 'name')} />
+          <Form ref="form" model={this.state.form} rules={this.state.rules} labelWidth="60">
+            <Form.Item label="账号" prop="name">
+              <Input value={this.state.form.name} onChange={this._onChange.bind(this, 'name')}/>
             </Form.Item>
-            <Form.Item label="密码">
-              <Input value={this.state.form.password} onChange={this.onChange.bind(this, 'password')} />
+            <Form.Item label="密码" prop="password">
+              <Input type='password' value={this.state.form.password} onChange={this._onChange.bind(this, 'password')}/>
             </Form.Item>
           </Form>
-          <Button type="primary" onClick={this.onSubmit}>登录</Button>
+          <Button type="primary" onClick={this._onSubmit} loading={isLoading}> {isLoading ? '登录中' : '登 录'} </Button>
         </div>
       </div>
     );
