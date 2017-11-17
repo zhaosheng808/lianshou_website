@@ -14,7 +14,9 @@ import Home from '../Home'
 import './App.css';
 
 import { connect } from 'react-redux';
-import * as action from '../../redux/actions';
+// import * as action from '../../redux/actions';
+import {login} from '@/redux/models/admin';
+import {add} from '@/redux/models/other';
 
 class App extends Component {
   constructor(props){
@@ -23,11 +25,13 @@ class App extends Component {
   }
   componentDidMount(){
     // this.props.dispatch(action.hi());
-    console.log(this.state, 'state');
-    console.log(this.props, 'props');
+    // console.log(this.state, 'state');
+    // console.log(this.props, 'props');
+    // console.log(login, 'login');
   }
   _changeName = () => {
-    this.props.dispatch(action.add())
+    // this.props.dispatch(add())
+    this.props.add();
   };
   render() {
     const contentStyle = {
@@ -35,7 +39,7 @@ class App extends Component {
       boxSizing: 'border-box',
       padding: '10px'
     };
-    const {name} = this.props;
+    const {number} = this.props;
     // const { name = '未定义' } = this.props;
     return (
       <div className="App">
@@ -45,7 +49,7 @@ class App extends Component {
 
         <div className="app-content" style={contentStyle}>
           <h1 style={{borderBottom:'1px solid #333'}}>app-content</h1>
-          <h2>number: {name}</h2>
+          <h2>number: {number}</h2>
           <button onClick={this._changeName}>add 1</button>
           <Switch>
             <Route exact path="/" component={Dashboard}/>
@@ -59,4 +63,7 @@ class App extends Component {
     );
   }
 }
-export default  connect(state => state, null, null, {pure: false})(App);
+
+
+
+export default connect(state => ({admin: state.admin, number: state.other.number}), {login, add}, null, {pure: false})(App);

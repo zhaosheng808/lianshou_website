@@ -56,7 +56,7 @@ class Login extends Component {
       isLoading: true
     });
     setTimeout( () => {
-      this.props.dispatch(login());
+      this.props.login();
       this.props.history.push('/');
       Notification({
         title: '登录成功',
@@ -99,4 +99,17 @@ class Login extends Component {
     );
   }
 }
-export default  connect(state => state)(Login);
+
+/*
+ * connect方法接受两个参数：mapStateToProps和mapDispatchToProps。
+ * 它们定义了 UI 组件的业务逻辑。前者负责输入逻辑，即将state映射到 UI 组件的参数（props），
+ * 后者负责输出逻辑，即将用户对 UI 组件的操作映射成 Action。
+ * */
+
+/*
+ * 通过mapDispatchToProps我们在页面调用的方式为`this.props.add()`
+ * 如果省略这个 mapDispatchToProps 参数，默认情况下，dispatch 会注入到你的组件 props 中,
+ * 则页面的调用方式为`this.props.dispatch(add())`
+ * */
+
+export default  connect(state => ({admin: state.admin}), {login})(Login);

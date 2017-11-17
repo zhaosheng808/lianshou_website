@@ -3,18 +3,19 @@
  */
 import { combineReducers } from 'redux'
 
-import admin from './models/admin'
+import admin from './models/admin';
+import other from './models/other';
 
 // reducer 就是一个纯函数，接收旧的 state 和 action，返回新的 state。
 
-const name = (state = 0, action) => {
-  switch (action.type) {
-    case 'ADD':
-      return state + 1;
-    default :
-      return state
-  }
-};
+// const other = (state = 0, action) => {
+//   switch (action.type) {
+//     case 'ADD':
+//       return state + 1;
+//     default :
+//       return state
+//   }
+// };
 
 // 用户
 // const user = (state = {}, action) => {
@@ -32,7 +33,7 @@ reducer首先用action中传入的type属性来判断我们要做的是哪种操
 */
 
 const reducers = combineReducers({
-  name,
+  other,
   admin
   // more state
 });
