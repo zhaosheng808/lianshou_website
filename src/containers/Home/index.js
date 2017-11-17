@@ -17,9 +17,9 @@ class Home extends Component {
         <p className="App-intro">
           主页
         </p>
-        <Link to='/home/xiaoming'>小明之家</Link>
+        <Link to='/home/xiaoming'>小明之家2</Link>
         <Switch>
-          <Route exact path="/home/:name" component={Homename}/>
+          <Route path="/home/:name" component={Homename}/>
         </Switch>
       </div>
     );
