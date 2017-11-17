@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {
   // HashRouter as Router,
   Route,
+  Redirect,
   Switch
 } from 'react-router-dom';
 import NavBar from './NavBar'
@@ -50,7 +51,8 @@ class App extends Component {
             <Route exact path="/" component={Dashboard}/>
             <Route path="/home" component={Home}/>
             <Route path="/404" component={NotFound}/>
-            <Route component={NotFound}/>
+            <Redirect path="*" to="404"/>
+            {/*<Route component={NotFound}/>*/}
           </Switch>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Dropdown } from 'element-react';
-import logo from '../../../assets/images/Fruit-1.png';
+import logo from '@/assets/images/Fruit-1.png';
 import './index.css';
 
 export default

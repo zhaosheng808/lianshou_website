@@ -5,7 +5,8 @@ import React, {Component} from 'react';
 import {Button, Form, Input, Notification} from 'element-react';
 // import style from './index.css';
 import {connect} from 'react-redux';
-import axios from 'axios'
+import axios from 'axios';
+import qs from 'qs';
 import {login} from '../../redux/models/admin';
 require('./index.css');
 
@@ -30,7 +31,14 @@ class Login extends Component {
   }
   componentDidMount() {
     // console.log(login)
-    axios.post('http://test-api-jper.foundao.com/acc_cms/system/login', {user_name: '12', password: '111'})
+    axios({
+      method: 'post',
+      url: 'http://test-api-jper.foundao.com/acc_cms/system/login',
+      data: qs.stringify({user_name: 'zhaosheng', password: '123'}),
+      headers:{'Content-Type': 'application/x-www-form-urlencoded'}
+    }).then(resp=> {
+      console.log(resp, 'resp');
+    })
   }
 
   _onSubmit = () => {
