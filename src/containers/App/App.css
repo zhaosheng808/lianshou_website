@@ -1,8 +1,12 @@
 .App {
   /*text-align: center;*/
   height: 100%;
+  position: relative;
 }
-
+.app_main{
+  max-width: 1300px;
+  margin: 0 auto;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -29,4 +33,16 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.app-footer {
+  width: 100%;
+  color: #fff;
+  padding: 30px;
+  line-height: 25px;
+  text-align: center;
+  background: #333;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
 }

@@ -8,7 +8,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ```
 .
-├── build                                 # 项目输出目录
+├── build                                 # 项目打包输出目录
 │   └── ...
 ├── config                                # 配置文件
 │   └── ...
@@ -44,14 +44,14 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ## 快速开始
 
-** 安装依赖: **
+**安装依赖:**
 
 `npm install`
 
-** 开发： **
+**开发：**
 
 `npm start`
 
-** 构建: **
+**构建:**
 
 `npm run build`

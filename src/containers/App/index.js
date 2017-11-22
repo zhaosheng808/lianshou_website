@@ -7,9 +7,10 @@ import {
   Switch
 } from 'react-router-dom';
 import NavBar from './NavBar'
-import SideBar from './SideBar'
+import AppHeader from './AppHeader'
 import Dashboard from '../Dashboard'
 import NotFound from '../NotFound'
+import Footer from '@/containers/App/Footer'
 import Home from '../Home'
 import './App.css';
 
@@ -35,7 +36,6 @@ class App extends Component {
   };
   render() {
     const contentStyle = {
-      marginLeft: '240px',
       boxSizing: 'border-box',
       padding: '10px'
     };
@@ -43,14 +43,17 @@ class App extends Component {
     // const { name = '未定义' } = this.props;
     return (
       <div className="App">
+        <AppHeader/>
         <NavBar/>
 
-        <SideBar/>
+        {/*<SideBar/>*/}
 
-        <div className="app-content" style={contentStyle}>
-          <h1 style={{borderBottom:'1px solid #333'}}>app-content</h1>
-          <h2>number: {number}</h2>
-          <button onClick={this._changeName}>add 1</button>
+        <div className="app_main" style={contentStyle}>
+          <div style={{display: 'none'}}>
+            <h1 style={{borderBottom:'1px solid #333'}}>app-content</h1>
+            <h2>number: {number}</h2>
+            <button onClick={this._changeName}>add 1</button>
+          </div>
           <Switch>
             <Route exact path="/" component={Dashboard}/>
             <Route path="/home" component={Home}/>
@@ -59,6 +62,7 @@ class App extends Component {
             {/*<Route component={NotFound}/>*/}
           </Switch>
         </div>
+        <Footer/>
       </div>
     );
   }

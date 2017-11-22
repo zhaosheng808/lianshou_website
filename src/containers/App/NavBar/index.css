@@ -1,9 +1,9 @@
 .nav_bar{
-    height: 60px;
-    line-height: 60px;
+    /*height: 60px;*/
+    /*line-height: 60px;*/
     padding: 0 10px;
     /*overflow: hidden;*/
-    background: #00d0bd;
+    /*background: #00d0bd;*/
 }
 .appIcon{
     width: 50px;
@@ -27,4 +27,19 @@
     overflow: hidden;
     margin: 10px 5px 0;
     float: left;
+}
+.app_menu{
+    margin-top: 20px;
+}
+.el-menu--horizontal>.el-menu-item,.el-menu--horizontal .el-submenu .el-submenu__title{
+    border-bottom: 2px solid transparent;
+}
+.el-menu--horizontal>.el-menu-item:hover{
+    border-bottom: 2px solid #20a0ff;
+}
+.el-menu--horizontal>.el-submenu:hover .el-submenu__title{
+    border-bottom: 2px solid #20a0ff;
+}
+.el-menu--horizontal>.el-menu-item:hover, .el-menu--horizontal>.el-submenu.is-active .el-submenu__title, .el-menu--horizontal>.el-submenu:hover .el-submenu__title{
+    border-bottom: 2px solid #20a0ff;
 }

@@ -2,7 +2,8 @@
  * Created by DELL on 2017/11/10.
  */
 import React, { Component } from 'react';
-import logo from '../../logo.svg';
+import banner from '@/assets/images/indexbg.jpg';
+import './dashboard.css';
 // import {
 //   Switch,
 //   Link,
@@ -17,13 +18,18 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <h1>工作台</h1>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="banner">
+          <img src={banner}/>
+        </div>
+        <div className="home_products_title">
+          <hr size='1' color="#000" />
+          <a href="javascript: void(0)">
+            <div className="home_feature_box">
+              <span className="home_feature_box_title">家具</span>
+              <span className="home-featured_title_vice">经典奢华</span>
+            </div>
+          </a>
+        </div>
       </div>
     );
   }
