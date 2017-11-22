@@ -1,3 +1,5 @@
+# lianshou_website
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -7,7 +9,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
 ## 项目结构
 
 ```
-.
+
 ├── build                                 # 项目打包输出目录
 │   └── ...
 ├── config                                # 配置文件
@@ -15,10 +17,10 @@ You can find the most recent version of this guide [here](https://github.com/fac
 ├── public
 │   ├── favicon.ico
 │   └── index.html
-├── scripts
+├── scripts                               # 打包开发脚本
 │   ├── build.js
 │   └── start.js
-├── src
+├── src                                   # 源码
 │   ├── assets                            # 项目资源
 │   │   └── ...
 │   ├── components                        # 组件
@@ -27,7 +29,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
 │   │   └── ...
 │   ├── redux                             # redux
 │   │   ├── create.js                     # 初始化store
-│   │   ├── reducers.js                   # 初始化store
+│   │   ├── reducers.js                   # 所有reducer
 │   │   └── models                        # actions
 │   │       └── ...
 │   ├── router                            # 路由
@@ -40,18 +42,19 @@ You can find the most recent version of this guide [here](https://github.com/fac
 │   └── Main.js                           # 组件入口
 ├── package.json                          # 项目信息
 └── README.md                             # README.md
+
 ```
 
 ## 快速开始
 
 **安装依赖:**
 
-`npm install`
+``npm install``
 
 **开发：**
 
-`npm start`
+``npm start``
 
 **构建:**
 
-`npm run build`
+``npm run build``
