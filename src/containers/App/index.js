@@ -48,7 +48,7 @@ class App extends Component {
 
         {/*<SideBar/>*/}
 
-        <div className="app_main" style={contentStyle}>
+        <div className="app_main app_content">
           <div style={{display: 'none'}}>
             <h1 style={{borderBottom:'1px solid #333'}}>app-content</h1>
             <h2>number: {number}</h2>

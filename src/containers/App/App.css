@@ -2,6 +2,7 @@
   /*text-align: center;*/
   height: 100%;
   position: relative;
+  padding-bottom: 120px;
 }
 .app_main{
   max-width: 1300px;
@@ -26,8 +27,10 @@
 .App-intro {
   font-size: large;
 }
-.app-content{
-  background: cornsilk;
+.app_content{
+  /*background: cornsilk;*/
+  box-sizing: border-box;
+  padding: 10px;
 }
 
 @keyframes App-logo-spin {
