@@ -11,6 +11,7 @@ import AppHeader from './AppHeader'
 import Dashboard from '../Dashboard'
 import NotFound from '../NotFound'
 import Footer from '@/containers/App/Footer'
+import About from '@/containers/About'
 import Home from '../Home'
 import './App.css';
 
@@ -57,6 +58,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Dashboard}/>
             <Route path="/home" component={Home}/>
+            <Route path="/about" component={About}/>
             <Route path="/404" component={NotFound}/>
             <Redirect path="*" to="404"/>
             {/*<Route component={NotFound}/>*/}

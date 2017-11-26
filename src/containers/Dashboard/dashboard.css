@@ -53,14 +53,28 @@
     overflow: hidden;
     box-sizing: border-box;
     padding: 4px;
-    border: 1px solid red;
+    border: 1px solid #f7f7f7;
+}
+.home_product_box:hover{
+    border-color: rgba(51,51,51,0.5);
 }
 .home_product_image{
     width: 100%;
     height: 320px;
 }
+.home_product_image img{
+    transition: 1s linear;
+}
+
 .home_products_list li{
     list-style: none;
     float: left;
     margin: 6px;
+    text-align: center;
+}
+.home_products_list li:hover .home_product_image img{
+    transform: scale(1.1);
+}
+.see_more{
+    display: inline-block;
 }

@@ -39,6 +39,9 @@ class Dashboard extends Component {
                   <div className="home_product_image image_box">
                     <img src={product1}/>
                   </div>
+                  <div className="product_box_bottom">
+                    <div className="see_more">查看更多</div>
+                  </div>
                 </div>
               </li>
               <li>
