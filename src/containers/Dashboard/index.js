@@ -1,30 +1,34 @@
 /**
  * Created by DELL on 2017/11/10.
  */
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import banner from '@/assets/images/indexbg.jpg';
 import product1 from '@/assets/images/ansuner_seat.jpg';
-import './dashboard.css';
-// import {
-//   Switch,
-//   Link,
-//   Route
-// } from 'react-router-dom';
-// import Home from '../Home'
-// import Login from '../Login'
+import './dashboard.scss';
 
 export default
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data1: [
+        {id: '1', name: '名称1', src: ''},
+        {id: '2', name: '名称2', src: ''},
+        {id: '3', name: '名称3', src: ''},
+        {id: '4', name: '名称4', src: ''}
+      ]
+    };
+  }
   render() {
+    const {data1} = this.state;
     return (
       <div className="dashboard">
-        <h1>工作台</h1>
         <div className="banner">
           <img src={banner}/>
         </div>
-        <div className="home_products_wrapper">
+        <div className="home_products_wrapper app_main">
           <div className="home_products_title">
-            <hr size='1' color="#000" />
+            <hr size='1' color="#000"/>
             <a href="javascript: void(0)">
               <div className="home_feature_box">
                 <span className="home_feature_box_title">家具</span>
@@ -33,46 +37,17 @@ class Dashboard extends Component {
             </a>
           </div>
           <div className="home_products_list">
-            <ul className="clear">
-              <li>
-                <div className="home_product_box">
-                  <div className="home_product_image image_box">
-                    <img src={product1}/>
-                  </div>
-                  <div className="product_box_bottom">
-                    <div className="see_more">查看更多</div>
-                  </div>
+            {data1.map((item, index) => {
+              return <div className="home_product_box" key={index}>
+                <div className="home_product_image image_box">
+                  <img src={product1}/>
                 </div>
-              </li>
-              <li>
-                <div className="home_product_box">
-                  <div className="home_product_image image_box">
-                    <img src={product1}/>
-                  </div>
+                <div className="product_box_bottom">
+                  <div className="product_info">{item.name}</div>
+                  <div className="see_more">查看更多</div>
                 </div>
-              </li>
-              <li>
-                <div className="home_product_box">
-                  <div className="home_product_image image_box">
-                    <img src={product1}/>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="home_product_box">
-                  <div className="home_product_image image_box">
-                    <img src={product1}/>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="home_product_box">
-                  <div className="home_product_image image_box">
-                    <img src={product1}/>
-                  </div>
-                </div>
-              </li>
-            </ul>
+              </div>
+            })}
           </div>
         </div>
       </div>

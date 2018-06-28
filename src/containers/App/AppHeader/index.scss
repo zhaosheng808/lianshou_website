@@ -1,0 +1,43 @@
+.app_header {
+  overflow: hidden;
+}
+
+.logo_box {
+  height: 130px;
+  overflow: hidden;
+}
+
+.top_logo {
+  width: 260px;
+  height: 70px;
+  margin: 25px auto;
+  background: url('../../../assets/images/logo_top.png');
+}
+.nav_box_wrapper{
+  border-top: 1px solid #f0f0f0;
+}
+.nav_box{
+  width: 1034px;
+  margin: auto;
+  ul{
+    list-style: none;
+    li{
+      font-size: 15px;
+      float: left;
+      margin: 0 20px;
+      border-bottom: 2px solid transparent;
+      a{
+        color: #000000;
+        display: block;
+        height: 48px;
+        line-height: 48px;
+        padding: 0 22px;
+      }
+    }
+    li.active {
+      color: #0bb78e;
+      border-bottom: 2px solid #0bb78e;
+    }
+  }
+
+}

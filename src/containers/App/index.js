@@ -45,16 +45,7 @@ class App extends Component {
     return (
       <div className="App">
         <AppHeader/>
-        <NavBar/>
-
-        {/*<SideBar/>*/}
-
-        <div className="app_main app_content">
-          <div style={{display: 'none'}}>
-            <h1 style={{borderBottom:'1px solid #333'}}>app-content</h1>
-            <h2>number: {number}</h2>
-            <button onClick={this._changeName}>add 1</button>
-          </div>
+        <div className="app_content">
           <Switch>
             <Route exact path="/" component={Dashboard}/>
             <Route path="/home" component={Home}/>
