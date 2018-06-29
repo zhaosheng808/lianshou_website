@@ -1,32 +1,50 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
-import { Menu } from 'element-react';
-// import logo from '@/assets/images/Fruit-1.png';
-import './index.css';
+import {Link} from 'react-router-dom';
+import classNames from 'classnames';
 
 export default
 class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      routers: [
+        {name: '首页', path: '/'},
+        {name: '产品中心', path: '/products'},
+        {name: '客户案列', path: '/case'},
+        {name: '关于我们', path: '/about'},
+      ]
+    };
+  }
   _quit = () => {
     console.log('退出');
   };
   onSelect() {
 
   };
+  get_hash_path = () => {
+    const hash_path = window.location.hash;
+    let hash_path_first = '/';
+    if (hash_path) {
+      const first_path_all = hash_path.split('/')[1];
+      const first_path = first_path_all.split('?')[0];  // 一级路由
+      hash_path_first = `/${first_path}`;
+    }
+    return hash_path_first;
+  };
   render() {
+    const {routers} = this.state;
+    const path = this.get_hash_path();
     return (
-      <div className="nav_bar app_main">
-        <div className="app_menu">
-          <Menu defaultActive="1" className="el-menu-demo" mode="horizontal" onSelect={this.onSelect.bind(this)}>
-            <Menu.Item index="1"><Link to='/'>首页</Link></Menu.Item>
-            <Menu.SubMenu index="2" title="产品中心">
-              <Menu.Item index="2-1">选项1</Menu.Item>
-              <Menu.Item index="2-2">选项2</Menu.Item>
-              <Menu.Item index="2-3">选项3</Menu.Item>
-            </Menu.SubMenu>
-            <Menu.Item index="3">客户案列</Menu.Item>
-            <Menu.Item index="4"><Link to='/about'>关于我们</Link></Menu.Item>
-            <Menu.Item index="5">售后服务</Menu.Item>
-          </Menu>
+      <div className="nav_box_wrapper">
+        <div className="nav_box">
+          <ul className="clear">
+            {routers.map((item, index) => {
+              return (<li className={classNames({'active': item.path === path})}
+                          key={index}>
+                <Link to={item.path}>{item.name}</Link>
+              </li>)
+            })}
+          </ul>
         </div>
       </div>
     );

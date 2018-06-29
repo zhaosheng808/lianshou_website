@@ -2,6 +2,7 @@
  * Created by DELL on 2017/11/10.
  */
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 import banner from '@/assets/images/indexbg.jpg';
 import product1 from '@/assets/images/ansuner_seat.jpg';
@@ -47,7 +48,9 @@ class Dashboard extends Component {
                   </div>
                   <div className="product_box_bottom">
                     <div className="product_info">{item.name}</div>
-                    <div className="see_more">查看更多</div>
+                    <Link to={`/product/${item.id}`}>
+                      <div className="see_more">查看更多</div>
+                    </Link>
                   </div>
                 </div>
               })}

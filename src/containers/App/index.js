@@ -10,6 +10,8 @@ import NotFound from '../NotFound'
 import Footer from '@/containers/App/Footer'
 import About from '@/containers/About'
 import Home from '../Home'
+import Products from '@/containers/Products'
+import ProductInfo from '@/containers/ProductInfo'
 import './App.css';
 
 import { connect } from 'react-redux';
@@ -36,6 +38,8 @@ class App extends Component {
             <Route exact path="/" component={Dashboard}/>
             <Route path="/home" component={Home}/>
             <Route path="/about" component={About}/>
+            <Route path="/products" component={Products}/>
+            <Route path="/product/:id" component={ProductInfo}/>
             <Route path="/404" component={NotFound}/>
             <Redirect path="*" to="404"/>
           </Switch>
