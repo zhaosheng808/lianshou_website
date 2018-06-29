@@ -33,10 +33,16 @@
         line-height: 48px;
         padding: 0 22px;
       }
+      a:hover{
+        color: #0bb78e;
+      }
     }
     li.active {
       color: #0bb78e;
       border-bottom: 2px solid #0bb78e;
+      a{
+        color: #0bb78e;
+      }
     }
   }
 

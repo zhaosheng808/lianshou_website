@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
-// import { Button } from 'antd';
 import {
-  // HashRouter as Router,
   Route,
   Redirect,
   Switch
 } from 'react-router-dom';
-import NavBar from './NavBar'
 import AppHeader from './AppHeader'
 import Dashboard from '../Dashboard'
 import NotFound from '../NotFound'
@@ -16,7 +13,6 @@ import Home from '../Home'
 import './App.css';
 
 import { connect } from 'react-redux';
-// import * as action from '../../redux/actions';
 import {login} from '@/redux/models/admin';
 import {add} from '@/redux/models/other';
 
@@ -26,33 +22,22 @@ class App extends Component {
     this.state = {};
   }
   componentDidMount(){
-    // this.props.dispatch(action.hi());
-    // console.log(this.state, 'state');
-    // console.log(this.props, 'props');
-    // console.log(login, 'login');
   }
   _changeName = () => {
-    // this.props.dispatch(add())
     this.props.add();
   };
   render() {
-    const contentStyle = {
-      boxSizing: 'border-box',
-      padding: '10px'
-    };
-    const {number} = this.props;
-    // const { name = '未定义' } = this.props;
     return (
       <div className="App">
-        <AppHeader/>
+        <AppHeader />
         <div className="app_content">
+          {/*结合Switch组件可以匹配到都匹配不到的路劲,404等...*/}
           <Switch>
             <Route exact path="/" component={Dashboard}/>
             <Route path="/home" component={Home}/>
             <Route path="/about" component={About}/>
             <Route path="/404" component={NotFound}/>
             <Redirect path="*" to="404"/>
-            {/*<Route component={NotFound}/>*/}
           </Switch>
         </div>
         <Footer/>

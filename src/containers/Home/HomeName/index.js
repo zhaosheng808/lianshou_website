@@ -4,13 +4,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from '../../../redux/actions';
-class Homename extends Component {
+class HomeName extends Component {
   _changeName = () => {
     this.props.dispatch(action.add())
   };
   render() {
     const {other} = this.props;
-    console.log(this.props.match.params, 'this.props.match.params');
     return (
       <div className="homename">
         <h2>home二级页面</h2>
@@ -22,4 +21,4 @@ class Homename extends Component {
     );
   }
 }
-export default  connect(state => ({other: state.other}))(Homename);
+export default  connect(state => ({other: state.other}))(HomeName);

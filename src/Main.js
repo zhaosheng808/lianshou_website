@@ -18,8 +18,11 @@ class Main extends Component {
     this.state = {
     };
   }
+  componentDidMount () {
+    console.log('%c WWW.FOUNDAO.COM', 'font-size:40px;font-weight:700;-webkit-user-select: none;background-image: -webkit-gradient(linear, 0 0, right bottom, from(rgba(203, 0, 0, 1)), to(rgba(37, 220, 222, 1)));-webkit-background-clip: text;-webkit-text-fill-color: transparent;');
+  }
   _authLogin = () => {
-    console.log(this.props.admin, 'admin');
+    // console.log(this.props.admin, 'admin');
     const { username = 'aaa' } = this.props.admin;
     if (username) {
       return <App />
